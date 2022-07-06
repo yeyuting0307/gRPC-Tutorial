@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package my.server.stream.grpc;
+
+service BidirectionalStreamExample {
+  rpc BidirectionalStream(stream ExampleRequest) returns (stream ExampleResponse) {}
+}
+
+message ExampleRequest {
+  int32 client_id = 1;
+	string request_data = 2;
+}
+
+message ExampleResponse {
+  int32 server_id = 1;
+  string response_data = 2;
+}

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package AiiiGRPC;
+
+message Item {
+    string name = 1;
+    int32 price = 2;
+    string message = 3;
+}
+
+message List {
+    repeated Item items = 1;
+}
+
+message Filter {
+    string name = 1;
+    int32 price = 2;
+    string opStr = 3;
+}
+
+service ToDoService {
+    rpc UnaryAddItem (Item) returns (List);
+    rpc ClientStreamingAddItem (stream Item) returns (google.protobuf.Empty);
+    rpc ServerStreamingSubList (Filter) returns (stream Item);
+    rpc BidirectionalStreamingAsyncList (stream Item) returns (stream List);
+}
