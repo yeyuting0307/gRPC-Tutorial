@@ -15,37 +15,33 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 syntax = "proto3";
-package endpoints.MyProjectName.grpc; 
+package custom.unique.package.name; //FIXME: custom.unique.package.name
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/descriptor.proto";
 import "google/api/annotations.proto";
 
+// FIXME: MyService
 service MyService {
-  rpc myRpc1(myRpc1Request) returns (myRpc1Response) {
-    option (google.api.http) = { post: "/v1/myPath1" };
-  }
-  // If you don't need request.
-  rpc myRpc2(google.protobuf.Empty) returns (myRpc2Response) {
-    option (google.api.http) = { post: "/v1/myPath2" };
-  }
+  //FIXME: myRpc1 myRpc1Request myRpc1Response myRpc2Response
+  rpc myRpc1(myRpc1Request) returns (myRpc1Response) {}
+  // If you don't need request, apply Empty
+  rpc myRpc2(google.protobuf.Empty) returns (myRpc2Response) {}
 }
 
+// FIXME: All message schema
 // ======> myRpc1 <======
 message myRpc1Request {
   string myParam1 = 1;
 }
 
+
 message myRpc1Response {
-  int32 status_code = 1;
-  string status_msg = 2;
-  string data_layer = 3;
+  int32 myOutput1 = 1;
 }
 
 
 // ======> myRpc2 <======
 message myRpc2Response {
-  int32 status_code = 1;
-  string status_msg = 2;
-  string data_layer = 3;
+  int32 myOutput2 = 1;
 }
