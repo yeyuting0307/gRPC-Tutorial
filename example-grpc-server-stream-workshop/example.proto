@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package my.server.streaming.grpc;
+
+service ServerStreamExample {
+  rpc ExampleRpc(ExampleRequest) returns (stream ExampleResponse) {}
+}
+
+message ExampleRequest {
+  int32 server_render_times = 1;
+}
+
+message ExampleResponse {
+  string res_content = 1;
+}

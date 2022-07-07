@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package my.server.stream.grpc;
+
+service BidirectionalStreamExample {
+  rpc CharStream(stream CharRequest) returns (stream CharResponse) {}
+}
+
+message CharRequest {
+  string character = 1;
+}
+
+message CharResponse {
+  string words = 1;
+}
