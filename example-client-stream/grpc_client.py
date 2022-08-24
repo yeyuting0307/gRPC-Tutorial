@@ -25,7 +25,7 @@ def run(host, port, api_key, auth_token, timeout, use_tls):
     
     # ==================> Custom Test Script <==================
     logging.warning('======> stab start <======')
-    print("--------------Call BidirectionalStreamingMethod Begin---------------")
+    print("--------------Call ClientStreamingMethod Begin---------------")
 
     # create a generator
     def request_messages():
